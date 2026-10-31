@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://8voj1cqsic66"]
+
+[ext_resource type="Texture2D" uid="uid://dt8ea57duefe5" path="res://—Pngtree—comic book style of a_15984220.png" id="1_fchxj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rylvo"]
+radius = 168.57639
+
+[node name="Virat" type="Area2D" unique_id=786516955 groups=["Virat"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=132593142]
+position = Vector2(-264.6373, 10.759268)
+scale = Vector2(0.0774596, 0.075077765)
+texture = ExtResource("1_fchxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2055026281]
+position = Vector2(-261, 30)
+shape = SubResource("CircleShape2D_rylvo")

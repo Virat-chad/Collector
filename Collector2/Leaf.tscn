@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://ckg4ft2xywmkn"]
+
+[ext_resource type="Script" uid="uid://dsqqqcwdlfq3l" path="res://abhinav.gd" id="1_217f8"]
+[ext_resource type="PackedScene" uid="uid://8voj1cqsic66" path="res://Virat.tscn" id="2_ka8gf"]
+[ext_resource type="Texture2D" uid="uid://bqv84rw726d1g" path="res://WwNRyg.png" id="2_pbrgb"]
+[ext_resource type="Texture2D" uid="uid://co5myv7onos6p" path="res://—Pngtree—angry black cat breathing fire_21308900.png" id="3_pbrgb"]
+[ext_resource type="Texture2D" uid="uid://dt8ea57duefe5" path="res://—Pngtree—comic book style of a_15984220.png" id="4_pbrgb"]
+[ext_resource type="Texture2D" uid="uid://cw382q0arjijf" path="res://basket.png" id="5_wk6qo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvmvm"]
+radius = 141.22676
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxyyf"]
+size = Vector2(178, 155)
+
+[node name="Node2D" type="Node2D" unique_id=717405444]
+position = Vector2(-108, -65)
+
+[node name="CoolSprite2D" type="Sprite2D" parent="." unique_id=1872150336]
+position = Vector2(688, 394)
+scale = Vector2(2.4020832, 1.813889)
+texture = ExtResource("2_pbrgb")
+
+[node name="Abhinav" type="CharacterBody2D" parent="." unique_id=1645075009]
+position = Vector2(925, 270)
+script = ExtResource("1_217f8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Abhinav" unique_id=412906507]
+position = Vector2(-455, -90)
+scale = Vector2(0.066333294, 0.080388896)
+texture = ExtResource("3_pbrgb")
+
+[node name="PickupArea" type="Area2D" parent="Abhinav" unique_id=2020041344]
+position = Vector2(-450, -92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Abhinav/PickupArea" unique_id=1871729526]
+position = Vector2(5, 10)
+shape = SubResource("CircleShape2D_yvmvm")
+
+[node name="Camera2D" type="Camera2D" parent="Abhinav" unique_id=1982469992]
+position = Vector2(-236, 122)
+enabled = false
+
+[node name="Holdingleaf" type="Sprite2D" parent="Abhinav" unique_id=1460598992]
+position = Vector2(-364.875, -27.624996)
+scale = Vector2(0.030700693, 0.031555172)
+texture = ExtResource("4_pbrgb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Abhinav" unique_id=1096035755]
+
+[node name="CounterLabel" type="Label" parent="Abhinav/CanvasLayer" unique_id=1185326183]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Virat" parent="." unique_id=786516955 instance=ExtResource("2_ka8gf")]
+position = Vector2(835, 526)
+scale = Vector2(0.3, 0.3)
+
+[node name="Virat2" parent="." unique_id=109708903 instance=ExtResource("2_ka8gf")]
+position = Vector2(840, 268)
+scale = Vector2(0.3, 0.267)
+
+[node name="Virat3" parent="." unique_id=1136819907 instance=ExtResource("2_ka8gf")]
+position = Vector2(1115, 495)
+scale = Vector2(0.3, 0.3)
+
+[node name="Virat4" parent="." unique_id=505814306 instance=ExtResource("2_ka8gf")]
+position = Vector2(1152, 256)
+scale = Vector2(0.3, 0.3)
+
+[node name="Basket" type="Area2D" parent="." unique_id=504510318 groups=["Basket"]]
+position = Vector2(1022, 114)
+
+[node name="Sprite2D" type="Sprite2D" parent="Basket" unique_id=127583090]
+position = Vector2(-658.5, 386.5)
+scale = Vector2(0.6837838, 0.70540535)
+texture = ExtResource("5_wk6qo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Basket" unique_id=1216034110]
+position = Vector2(-668, 404.5)
+shape = SubResource("RectangleShape2D_lxyyf")
+
+[connection signal="area_entered" from="Abhinav/PickupArea" to="Abhinav" method="_on_pickup_area_area_entered"]
